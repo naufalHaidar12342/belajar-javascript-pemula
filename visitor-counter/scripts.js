@@ -27,13 +27,25 @@ function counterPengunjung() {
     jumlahPengunjung = jumlahPengunjung + 1;
     hitungPengunjung.innerText = jumlahPengunjung;
 
-    if (jumlahPengunjung >= 50) {
-        document.getElementById("modal").style.display = "";
-        //alert("maaf, jumlah pengunjung maksimal 50 orang");
-        document.getElementById("tombol-hitung").disabled = true;
-    }
+    // if (jumlahPengunjung >= 50) {
+    //     document.getElementById("modal").style.display = "";
+    //     alert("maaf, jumlah pengunjung maksimal 50 orang");
+    //     document.getElementById("tombol-hitung").disabled = true;
+    // }
 }
 
 function showModal() {
+    // mencari id "modal" pada dokumen html
+    //kemudian mengubah atribut display dari css menjadi null
     document.getElementById("modal").style.display = "";
+}
+
+function savePengunjung() {
+    let recordVisitor = jumlahPengunjung + " - ";
+    let showHistory = document.getElementById("riwayat-pengunjung");
+    showHistory.textContent = showHistory.textContent + recordVisitor;
+
+    //reset angka kembali menjadi 0 ketika tombol save di-klik
+    jumlahPengunjung = 0;
+    document.getElementById("angka-pengunjung").innerText = jumlahPengunjung;
 }
